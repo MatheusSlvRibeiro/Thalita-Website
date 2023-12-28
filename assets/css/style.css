@@ -411,6 +411,15 @@ img {
   padding: .25rem .5rem .5rem 0;
 }
 
+.btn-contact{
+  display: flex;
+}
+
+.contact a.button-contact{
+  margin: 5px;
+  padding: 10px;
+}
+
 /*==================== FOOTER ====================*/
 .footer{
   padding: 2rem;
@@ -447,7 +456,7 @@ img {
 .footer_copy{
   font-size: var(--smaller-font-size);
   text-align: center;
-  color: var(--text-color-light);
+  color: var(--title-color);
   margin-top: var(--mb-3);
 }
 
@@ -457,6 +466,9 @@ img {
 a{
   color: #FFF;
 }
+
+
+
 /*========== SCROLL UP ==========*/
 .scrollup{
   position: fixed;

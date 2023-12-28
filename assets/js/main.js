@@ -59,3 +59,6 @@ ScrollReveal().reveal('.qualification', { delay: 200, origin: 'bottom'});
 ScrollReveal().reveal('.contact_form', { delay: 200, origin: 'bottom'});
 
 ScrollReveal().reveal('.brand-svg', { delay: 200, origin: 'left'});
+
+
+/*======================== SEND EMAIL  ========================*/

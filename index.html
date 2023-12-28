@@ -279,33 +279,39 @@
                     
                     </div>
 
-                    <form action="" class="contact_form grid">
+                    <form action="https://formsubmit.co/el/mehele" method="POST"
+                          class="contact_form grid">
+
                         <div class="contact_inputs grid">
                             <div class="contact_content">
-                                <label for="" class="contact_label">Nome</label>
-                                <input type="text" class="contact_input">
+                                <label for="" class="contact_label" name="nome" required>Nome</label>
+                                <input type="text" class="contact_input" placeholder="Nome completo">
                             </div>
 
                             <div class="contact_content">
-                                <label for="" class="contact_label">Email</label>
-                                <input type="email" class="contact_input">
+                                <label for="" class="contact_label" name="email" required>Email</label>
+                                <input type="email" class="contact_input" placeholder="E-mail">
                             </div>
                         </div>
 
                             <div class="contact_content">
-                                <label for="" class="contact_label">Projeto</label>
-                                <input type="text" class="contact_input">
+                                <label for="" class="contact_label" name="projeto">Projeto</label>
+                                <input type="text" class="contact_input" placeholder="Título do seu projeto">
                             </div>
 
                             <div class="contact_content">
-                                <label for="" class="contact_label">Mensagem</label>
-                                <textarea name="" id="" cols="0" rows="3" class="contact_input"></textarea>
+                                <label for="" class="contact_label" name="message">Mensagem</label>
+                                <textarea name="mensagem" id="" cols="0" rows="3" class="contact_input" placeholder="Escreva sua mensagem"></textarea>
                             </div>
 
-                            <div>
-                                <a href="#contact" class="button button--flex">
+                            <div class="btn-contact">
+                                <button type="submit" class="button button-contact">
                                     Enviar Mensagem
                                     <i class="fa-solid fa-message button_icon button_icon"></i>
+                                </button>
+                                <a href="/assets/pdf/Currículo_thalita.pdf" download class="button button-contact">
+                                    Baixar Curriculo
+                                    <i class="fa-solid fa-download"></i>
                                 </a>
                             </div>
                             
@@ -356,5 +362,31 @@
         <!--==================== SCROLL REVEAL ====================-->
         <script src="https://unpkg.com/scrollreveal"></script>
         <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+
+        <!--==================== EMAIL FORM ====================-->
+        <script src="https://smtpjs.com/v3/smtp.js">
+        </script>
+        <script>
+            var btn = document.getElementById('btn');
+            btn.addEventListener('click', function(e){
+            e.preventDefault()
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            var projeto = document.getElementById('projeto').value;
+            var message = document.getElementById('message').value;
+            var body = 'name: '+name + '<br/> email: ' + email + '<br/> Projeto: ' + projeto + '<br/> Mensagem: ' + message 
+
+            Email.send({
+                SecureToken : "a041eb37-c0a5-42ef-940a-e622400e15e5",
+                To : 'silva.contaoff@gmail.com',
+                From : "you@isp.com",
+                Subject : "Portifolio Contato",
+                Body : body
+            }).then(
+                message => alert(message)
+                );
+            })
+        </script>
+
     </body>
 </html>
