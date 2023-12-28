@@ -35,3 +35,27 @@ function scrollUp(){
     else scrollUp.classList.remove('show-scroll')
 }
 window.addEventListener('scroll', scrollUp)
+
+/*--==================== SCROLL REVEAL ====================*/
+ScrollReveal({
+    reset: false,
+    distance: '40px',
+    duration: 1500,
+    delay: 200
+});
+
+/*========================= REVEAL HOME  =========================*/
+ScrollReveal().reveal('.home', { delay: 200, origin: 'bottom'});
+
+/*======================== REVEAL SKILLS  ========================*/
+ScrollReveal().reveal('.skills', { delay: 200, origin: 'right'});
+
+ScrollReveal().reveal('.img-softwares', { delay: 200, origin: 'left'});
+
+/*===================== REVEAL QUALIFICATION =====================*/
+ScrollReveal().reveal('.qualification', { delay: 200, origin: 'bottom'});
+
+/*======================== REVEAL CONTACT ========================*/
+ScrollReveal().reveal('.contact_form', { delay: 200, origin: 'bottom'});
+
+ScrollReveal().reveal('.brand-svg', { delay: 200, origin: 'left'});

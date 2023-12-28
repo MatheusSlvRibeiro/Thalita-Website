@@ -7,7 +7,7 @@
 
     /*========== Colors ==========*/
     /* Change favorite color */
-    --hue-color: 250; /*Purple 250 - Green 142 - Blue 230 - Pink 340*/
+    --hue-color: 33; /*Purple 250 - Green 142 - Blue 230 - Pink 340*/
 
     /* HSL color mode */
     --first-color: hsl(var(--hue-color), 69%, 61%);
@@ -152,9 +152,9 @@ img {
 /*==================== NAV ====================*/
 .nav{
   max-width: 968px;
+  justify-content: space-around;
   height: var(--header-height);
   display: flex;
-  justify-content: space-between;
   align-items: center;
 }
 
@@ -616,9 +616,6 @@ a{
     padding: 0;
   }
 
-  .nav_link{
-    padding-left: 30px;
-  }
   .home_container{
     margin-top: 30px;
     margin-bottom: 40px;
@@ -650,7 +647,7 @@ a{
   }
 
   .contact_form{
-    width: 460px;
+    width: 400px;
   }
   .contact_inputs{
     grid-template-columns: repeat(2, 1fr);
