@@ -150,35 +150,72 @@ img {
 }
 
 /*==================== NAV ====================*/
-.nav{
-  max-width: 968px;
-  justify-content: space-around;
-  height: var(--header-height);
+.nav_bar{
+  width: 100%;
   display: flex;
+  justify-content: space-between;
   align-items: center;
+  list-style: none;
+  position: relative;
+  padding: 12px 50px;
 }
 
-.nav_logo{
+.logo{
   color: var(--title-color);
   font-weight: var(--font-medium);
 }
+.logo:hover {color: var(--first-color);}
 
-.nav_logo:hover{
-  color: var(--first-color);
+.menu {display: flex;}
+
+.nav_item{
+  padding-left: 50px;
 }
 
 .nav_link{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: var(--small-font-size);
+  display: inline-block;
   color: var(--title-color);
+  text-align: center;
+  transition: 0.15s ease-in-out;
+  position: relative;
+  font-size: var(--small-font-size);
   font-weight: var(--font-medium);
 }
-
 .nav_link:hover{
   color: var(--first-color);
 }
+.nav_link::after{
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--first-color);
+  transition: 0.25s ease-in-out;
+}
+.nav_link:hover::after{width: 100%;}
+
+.open-menu,
+.close-menu{
+  position: absolute;
+  color: var(--first-color);
+  cursor: pointer;
+  font-size: 1.5rem;
+  display: none;
+}
+
+.open-menu{
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+}
+.close-menu{
+  top: 20px;
+  right: 20px;
+}
+
+#check {display: none;}
 
 /* Change background header */
 .scroll-header{
@@ -243,8 +280,25 @@ img {
 .button-flex{
   display: inline-flex;
   align-items: center;
+  margin: 5px;
 }
 
+.buttons-home{
+  display:flex;
+}
+
+.fa-linkedin{
+  font-size: 1.2rem;
+  margin: 0 0 0 2px;
+}
+
+.button-contact{
+  padding: 5px;
+}
+
+.button-linkedin{
+  padding: 10px 10px;
+}
 /*==================== SKILLS ====================*/
 .img-softwares{
   width: 400px;
@@ -398,6 +452,7 @@ img {
 .contact_label{
   font-size: var(--smaller-font-size);
   color: var(--title-color);
+  width: 50%;
 }
 
 .contact_input{
@@ -409,15 +464,6 @@ img {
   border: none;
   outline: none;
   padding: .25rem .5rem .5rem 0;
-}
-
-.btn-contact{
-  display: flex;
-}
-
-.contact a.button-contact{
-  margin: 5px;
-  padding: 10px;
 }
 
 /*==================== FOOTER ====================*/
@@ -511,11 +557,33 @@ a{
 /*==================== MEDIA QUERIES ====================*/
 /* For small devices */
 @media screen and (max-width: 950px){
-  .nav_menu,
   .brand-svg,
   .img-softwares{
     display: none;
   }
+}
+
+@media(max-width: 610px){
+  .menu{
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    z-index: 100;
+    background-color: var(--body-color);
+    transition: all 0.2s ease-in-out;
+  }
+  .nav_item{
+    margin-top: 40px;
+  }
+  
+  .nav_link{padding: 10px;}
+  .open-menu, .close-menu{display: block;}
+  #check:checked ~ .menu{right: 0;}
 }
 
 @media screen and (max-width: 350px){
@@ -554,13 +622,17 @@ a{
     justify-self: center;
   }
 
-  .nav_list{
-    display: flex;
-    flex-direction: row;
+  .open-menu,
+  .close-menu{
+    display: none;
+  }
+
+  .linkedin{
+    display: none;
   }
 
   .footer_container{
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .qualification_sections{
@@ -593,7 +665,7 @@ a{
 
   .home_img{
     width: 270px;
-  }
+  }  
   
   .qualification_tabs{
     justify-content: center;
