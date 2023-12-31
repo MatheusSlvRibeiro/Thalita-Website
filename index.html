@@ -298,32 +298,36 @@
                     
                     </div>
 
-                    <form action="https://api.web3forms.com/submit" method="post" class="contact_form grid">
+                    <form action="mail.php" method="post" class="contact_form grid">
                         
                         <div class="contact_inputs grid">
-                            <input type="hidden" name="access_key" value="649884f4-208a-4f64-97b5-80b38df1a28c">
                             <div class="contact_content">
-                                <label for="" class="contact_label" name="nome" required>Nome</label>
+                                <label for="name" class="contact_label" name="name" required>Nome</label>
                                 <input type="text" class="contact_input" placeholder="Nome completo">
                             </div>
 
                             <div class="contact_content">
-                                <label for="" class="contact_label" name="email" required>Email</label>
+                                <label for="email" class="contact_label" name="email" required>Email</label>
                                 <input type="email" class="contact_input" placeholder="E-mail">
                             </div>
                         </div>
-                        <input type="hidden" name="access_key" value="649884f4-208a-4f64-97b5-80b38df1a28c">
-                            <div class="contact_content">
-                                <label for="" class="contact_label" name="message">Mensagem</label>
-                                <textarea name="mensagem" id="" cols="0" rows="3" class="contact_input" placeholder="Escreva sua mensagem"></textarea>
+                        
+                        <div class="contact_content">
+                            <label for="subject" class="contact_label" name="subject" required>Nome do projeto</label>
+                            <input type="text" name="subject" class="contact_input" placeholder="Nome do projeto">
+                        </div>
+                        
+                        <div class="contact_content">
+                                <label for="message" class="contact_label" name="message">Mensagem</label>
+                                <textarea name="message" id="" cols="0" rows="3" class="contact_input" placeholder="Escreva sua mensagem"></textarea>
                             </div>
 
                             <div class="btn-contact">
-                                
-                                <button type="submit" class="button button-contact">
+                                <a class="button button-flex">
                                     Enviar mensagem
-                                </button>
-                                <a href="/assets/pdf/Currículo_thalita.pdf" download class="button button-contact">
+                                </a>
+
+                                <a href="/assets/pdf/Currículo_thalita.pdf" download class="button button-flex">
                                     Baixar Curriculo
                                     <i class="fa-solid fa-download"></i>
                                 </a>
