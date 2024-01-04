@@ -3,8 +3,6 @@
 
 /*==================== VARIABLES CSS ====================*/
 :root {
-    --header-height: 3rem;
-
     /*========== Colors ==========*/
     /* Change favorite color */
     --hue-color: 33; /*Purple 250 - Green 142 - Blue 230 - Pink 340*/
@@ -108,7 +106,7 @@ img {
 
 /*==================== REUSABLE CSS CLASSES ====================*/
 .section {
-  padding: 2rem 0 4rem;
+  padding: 2rem 0 3rem;
 }
 
 .section_title {
@@ -300,10 +298,10 @@ img {
   padding: 10px 10px;
 }
 /*==================== SKILLS ====================*/
-.img-softwares{
-  width: 400px;
-  border-radius: 30px;
-  margin: 30px 0 0 0;
+
+.skills_container{
+  display: flex;
+
 }
 
 .skills_section{
@@ -313,6 +311,12 @@ img {
   display: flex;
   align-items: center;
   flex-direction: column;
+}
+
+.img-softwares{
+  width: 400px;
+  border-radius: 30px;
+  margin: 30px 0 0 0;
 }
 
 .skills{
@@ -444,26 +448,33 @@ img {
 }
 
 .contact_content{
-  background-color: var(--input-color);
-  border-radius: .5rem;
-  padding: .75rem 1rem .25rem;
+  margin-top: 70px;
 }
 
-.contact_label{
-  font-size: var(--smaller-font-size);
-  color: var(--title-color);
-  width: 50%;
+.contact_information{
+  display: flex;
+  margin-bottom: var(--mb-2-5);
 }
 
-.contact_input{
-  width: 100%;
-  background-color: var(--input-color);
-  color: var(--text-color);
-  font-family: var(--body-color);
-  font-size: var(--normal-font-size);
-  border: none;
-  outline: none;
-  padding: .25rem .5rem .5rem 0;
+.contact_icon{
+  font-size: 2rem;
+  color: var(--first-color);
+  margin-right: var(--mb-0-75);
+}
+
+.contact_title{
+  font-size: var(--h3-font-size);
+  font-weight: var(--font-medium);
+}
+
+.contact_subtitle{
+  font-size: var(--small-font-size);
+  color: var(--text-color-light);
+}
+
+.contact_linkedin{
+  font-size: var(--small-font-size);
+  color: var(--text-color-light);
 }
 
 /*==================== FOOTER ====================*/
@@ -556,9 +567,15 @@ a{
 
 /*==================== MEDIA QUERIES ====================*/
 /* For small devices */
-@media screen and (max-width: 950px){
-  .brand-svg,
+
+@media screen and (max-width: 766px){
   .img-softwares{
+    display: none;
+  }
+}
+
+@media screen and (max-width: 568px){
+  .brand-svg{
     display: none;
   }
 }
@@ -584,6 +601,15 @@ a{
   .nav_link{padding: 10px;}
   .open-menu, .close-menu{display: block;}
   #check:checked ~ .menu{right: 0;}
+
+  .brand-svg{
+    max-width: 50%;
+    margin: 25px;
+  }
+
+  .contact_container{
+    display: flex;
+  }
 }
 
 @media screen and (max-width: 350px){
@@ -609,7 +635,7 @@ a{
 }
 
 /* For medium devices */
-@media screen and (min-width: 560px){
+@media screen and (min-width: 568px){
   .home_content{
     grid-template-columns: max-content 1fr 1fr;
   }
@@ -629,6 +655,15 @@ a{
 
   .linkedin{
     display: none;
+  }
+
+  .brand-svg{
+    max-width: 50%;
+    margin: 25px;
+  }
+
+  .contact_container{
+    display: flex;
   }
 
   .footer_container{
@@ -666,7 +701,7 @@ a{
   .home_img{
     width: 270px;
   }  
-  
+
   .qualification_tabs{
     justify-content: center;
   }
@@ -675,6 +710,10 @@ a{
   }
   .qualification_sections{
     grid-template-columns: .5fr;
+  }
+
+  .contact_container{
+    display: flex;
   }
 
   .footer_container{
@@ -727,13 +766,7 @@ a{
   }
 
   .brand-svg{
-    width: 420px;
+    width: 30%;
   }
 
-  .contact_form{
-    width: 400px;
-  }
-  .contact_inputs{
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
